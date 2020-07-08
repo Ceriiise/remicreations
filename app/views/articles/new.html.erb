@@ -1,0 +1,7 @@
+<div class="content-1330 center-relative">
+  <%= simple_form_for [ @category, @article ] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit "Enregistrer", class: "button" %>
+  <% end %>
+</div>
