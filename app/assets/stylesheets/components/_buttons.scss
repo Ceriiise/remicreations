@@ -1,0 +1,12 @@
+a.button {
+  display: inline-block;
+  color: $brand-primary;
+  border: 3px solid $brand-primary;
+  padding: 15px 40px;
+  text-decoration: none;
+}
+
+a.button:hover {
+  color: white;
+  background-color: $brand-primary;
+}

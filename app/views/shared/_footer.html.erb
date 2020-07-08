@@ -1,7 +1,9 @@
-<div class="footer">
-  <% if user_signed_in? %>
-    <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "foot-link" %>
-  <% else %>
-    <%= link_to "Se connecter", new_user_session_path, class: "foot-link" %>
-  <% end %>
-</div>
+<footer class="footer">
+  <div class="content-1330 center-relative">
+    <div class="footer-center">
+      <a href="index.html">
+        <%= image_tag("logo-remi-vert.png", width:"150px", alt:"Logo Rémi Créations") %>
+      </a>
+    </div>
+  </div>
+</footer>
