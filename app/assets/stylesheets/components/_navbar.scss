@@ -52,3 +52,18 @@ nav a:hover {
 nav a.current {
   color: $brand-primary;
 }
+
+.header-logo {
+  @media screen and (max-width: 925px) {
+    float: none;
+    display: block;
+    text-align: center;
+    margin-bottom: 60px;
+  }
+}
+
+.header-menu {
+  @media screen and (max-width: 925px) {
+    float: none;
+  }
+}

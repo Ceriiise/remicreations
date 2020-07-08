@@ -1,0 +1,13 @@
+.login {
+  background-color: $brand-secondary;
+  height: $footer;
+  font-size: 0.5rem;
+  display: flex;
+  align-items: baselin;
+  justify-content: flex-end;
+}
+
+.log-link {
+  color: $brand-primary;
+  margin: 0 1rem;
+}

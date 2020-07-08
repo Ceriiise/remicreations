@@ -1,0 +1,74 @@
+.main-description {
+  margin-left: 16rem;
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+  h1 {
+    display: inline;
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    font-weight: 400;
+    font-family: $body-font;
+  }
+  @media screen and (max-width: 650px) {
+    margin-left: 0px;
+  };
+}
+
+.filters-button-group {
+  text-align: right;
+  display: block;
+  padding-top: 8rem;
+  padding-bottom: 2rem;
+  @media screen and (max-width: 650px) {
+    padding-top: 2rem;
+  }
+}
+
+.filters-button-group .button.is-checked {
+  color: $brand-primary;
+}
+
+.filters-button-group .button {
+  display: inline-block;
+  transition: color .2s linear;
+}
+
+.filters-button-group .button:hover
+{
+  color: $brand-primary;
+  cursor: pointer;
+}
+
+.filters-button-group .button:after {
+  content: "\2022";
+  display: inline-block;
+  margin: 0 20px;
+  color: $gray;
+}
+
+.filters-button-group .button:last-child:after
+{
+  content: '';
+  display: none;
+}
+
+.home-description {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4rem;
+  @media screen and (max-width: 1020px) {
+    display: block;
+  };
+}
+
+.one_half {
+  margin-right: 2rem;
+}
+
+.one_half.last{
+  margin-right: 0;
+  margin-left: 2rem;
+  @media screen and (max-width: 1020px) {
+    margin-left: 0;
+  };
+}
