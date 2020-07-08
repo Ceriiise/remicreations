@@ -83,3 +83,9 @@ production:
   database: remicreations_production
   username: remicreations
   password: <%= ENV['REMICREATIONS_DATABASE_PASSWORD'] %>
+
+staging:
+  <<: *default
+  database: remi-creations-staging
+  username: remi-creations
+  password: <%= ENV['REMICREATIONS_DATABASE_PASSWORD'] %>
