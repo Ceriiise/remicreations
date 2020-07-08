@@ -12,13 +12,67 @@
 @import "components/index";
 @import "pages/index";
 
-a:hover {
+body {
+  background-color: $brand-secondary;
+}
+
+body a {
   text-decoration: none;
   color: $black;
+  transition: color .2s linear, background-color .2s linear, border-color .2s linear;
+  cursor: pointer;
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .devise-container {
   width: 700px;
   margin: auto;
   min-height: calc(100vh - #{$footer});
+}
+
+.body-wrapper {
+  background-color: $white;
+  margin: 3rem;
+  @media screen and (max-width: 1450px) {
+    margin: 3%;
+  }
+}
+
+li {
+  list-style: none;
+}
+
+.content-1330 {
+  max-width: 1330px;
+  @media screen and (max-width: 1600px) {
+    max-width: 1200px;
+  };
+  @media screen and (max-width: 1450px) {
+    width: 1110px;
+  };
+  @media screen and (max-width: 1340px) {
+    width: 1020px;
+  };
+  @media screen and (max-width: 1220px) {
+    width: 960px;
+  };
+  @media screen and (max-width: 1066px) {
+    width: 810px;
+  };
+  @media screen and (max-width: 925px) {
+    width: 690px;
+  };
+  @media screen and (max-width: 805px) {
+    width: 570px;
+  };
+  @media screen and (max-width: 650px) {
+    width: 90%;
+  };
+}
+
+.center-relative {
+  margin-left: auto;
+  margin-right: auto;
 }

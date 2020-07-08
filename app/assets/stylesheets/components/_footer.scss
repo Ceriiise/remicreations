@@ -1,5 +1,5 @@
 .footer {
-  background-color: $light-green;
+  background-color: $brand-secondary;
   height: $footer;
   font-size: 0.5rem;
   display: flex;
@@ -8,6 +8,6 @@
 }
 
 .foot-link {
-  color: $gray;
+  color: $brand-primary;
   margin: 0 1rem;
 }
