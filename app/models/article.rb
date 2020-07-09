@@ -1,5 +1,5 @@
 class Article < ApplicationRecord
-  has_one :category
+  belongs_to :category
   has_one_attached :photo
 
   validates :name, presence: true

@@ -3,5 +3,6 @@ class PagesController < ApplicationController
 
   def home
     @categories = Category.all
+    @star_articles = Article.where(star: true)
   end
 end

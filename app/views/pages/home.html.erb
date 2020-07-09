@@ -22,6 +22,19 @@
       <div class="grid" id="portfolio">
         <div class="grid-sizer"></div>
 
+          <% @star_articles.each do |article| %>
+
+            <div class="grid-item element-item p_one_third <%= article.category.name %>">
+              <div class="item">
+                <%= cl_image_tag article.photo.key, height: 300, width: 400, crop: :fit, alt: "article.name" %>
+                <div class="portfolio-text-holder">
+                  <p><%= article.name.upcase %></p>
+                </div>
+              </div>
+            </div>
+
+
+          <% end %>
 <!-- PROJETS -->
 
       </div>
