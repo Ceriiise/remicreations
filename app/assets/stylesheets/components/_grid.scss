@@ -26,10 +26,45 @@
 
 #content .grid-item img {
   display: block;
-  width: 100%;
-  height: auto;
+  // width: 100%;
+  // height: auto;
+  width: 24rem;
+  height: 24rem;
+  object-fit: cover;
   max-height: none;
   max-width: none;
+}
+
+.new-article-item {
+  position: relative;
+}
+
+.new-article-overlay {
+  color: $black;
+  background-color: $white;
+  opacity: 0.8;
+  position: absolute;
+  z-index: 1;
+  top: 30px;
+  left: 30px;
+  bottom: 30px;
+  right: 30px;
+  font-size: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  transition: ease 1s all;
+  i {
+    transition: ease 1s all;
+  }
+  &:hover {
+    opacity: 1;
+    transition: ease 1s all;
+    i {
+      transition: ease 1s all;
+      transform: scale(1.2);
+    }
+  }
 }
 
 .grid-item.p_one {

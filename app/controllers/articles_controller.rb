@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:home, :index]
 
   def new
     @article = Article.new
@@ -14,6 +15,11 @@ class ArticlesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def index
+    @articles = Article.all
+    @categories = Category.all
   end
 
   private
