@@ -30,10 +30,12 @@
 
 .filters-button-group .button {
   display: inline-block;
-  transition: color .2s linear;
+  .text {
+    transition: color .2s linear;
+  }
 }
 
-.filters-button-group .button:hover
+.filters-button-group .button .text:hover
 {
   color: $brand-primary;
   cursor: pointer;

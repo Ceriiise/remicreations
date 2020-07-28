@@ -1,12 +1,12 @@
-<div id="new-article" class="content-1330 center-relative">
+<div id="new-form" class="content-1330 center-relative">
   <%= simple_form_for @article do |f| %>
     <%= f.input :name, label: "Nom" %>
     <%= f.input :category, label: "Catégorie", as: :select, collection: @categories %>
     <div class="new-category">
-      <div id="new-category-link">
+      <div id="new-form-link">
         <p>ajouter une catégorie</p>
       </div>
-      <div id="new-category-form" class="d-none">
+      <div id="new-form-input" class="d-none">
         <%= f.simple_fields_for :category do |m| %>
           <%= m.input :name, label: "Nom de la nouvelle catégorie" %>
         <% end %>

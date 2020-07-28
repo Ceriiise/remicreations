@@ -1,9 +1,31 @@
 <div id="content" class="site-content">
   <div class="content-1330 center-relative">
     <div class="button-group filters-button-group pt-0">
-      <div class="button is-checked" data-filter="*">Tout</div>
+      <% if user_signed_in? %>
+        <div id="new-form">
+          <span id="new-form-link"><p><small>ajouter une catégorie</small></p></span>
+          <div id="new-form-input" class="d-none">
+            <%= simple_form_for([@category], remote: true) do |m| %>
+              <%= m.input :name, label: "Nom de la nouvelle catégorie" %>
+              <%= m.submit "Enregistrer", class: "button" %>
+            <% end %>
+          </div>
+        </div>
+      <% else %>
+        <div class="button is-checked" data-filter="*">Tout</div>
+      <% end %>
       <% @categories.each do |category| %>
-        <div class="button" data-filter=".<%= category.name.capitalize %>"><%= category.name.capitalize %></div>
+        <div class="button" data-filter=".<%= category.name.capitalize %>">
+          <span class="text"><%= category.name.capitalize %></span>
+          <% if user_signed_in? %>
+            <%= link_to category_path(category),
+                        method: :delete,
+                        remote: true,
+                        data: { confirm: "En supprimant cette catégorie tu supprimeras toutes les oeuvres qui en font partie. Veux-tu continuer ?"} do %>
+              <span class="delete-category-icon"><i class="far fa-times-circle"></i></span>
+            <% end %>
+          <% end %>
+        </div>
       <% end %>
     </div>
 
@@ -37,7 +59,10 @@
                       <%= link_to edit_article_path(article) do %>
                         <i class="fas fa-edit"></i>
                       <% end %>
-                      <%= link_to article_path(article), method: :delete, remote: true do %>
+                      <%= link_to article_path(article),
+                                    method: :delete,
+                                    remote: true,
+                                    data: { confirm: "Es-tu sûr de vouloir supprimer cette oeuvre ?"} do %>
                         <i class="fas fa-trash-alt"></i>
                       <% end %>
                     </div>
