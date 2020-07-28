@@ -44,3 +44,10 @@
     }
   }
 }
+
+.delete-category-icon i {
+  margin-left: .5rem;
+  &:hover {
+    color: red !important;
+  }
+}

@@ -21,6 +21,7 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.all
     @categories = Category.all
+    @category = Category.new
   end
 
   def edit
