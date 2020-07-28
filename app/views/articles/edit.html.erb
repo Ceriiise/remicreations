@@ -7,9 +7,9 @@
         <p>ajouter une catégorie</p>
       </div>
       <div id="new-category-form" class="d-none">
-        <%= f.simple_fields_for :category do |m| %>
-          <%= m.input :name, label: "Nom de la nouvelle catégorie" %>
-        <% end %>
+<!--         <#%= f.simple_fields_for :category do |m| %>
+          <#%= m.input :name, label: "Nom de la nouvelle catégorie" %>
+        <#% end %> -->
       </div>
     </div>
     <%= f.input :star, label:"Classer en favori ?", as: :boolean %>
