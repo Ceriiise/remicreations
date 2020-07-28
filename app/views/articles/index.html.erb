@@ -10,16 +10,6 @@
     <div class="grid" id="portfolio">
       <div class="grid-sizer"></div>
 
-        <% @articles.each do |article| %>
-          <div class="grid-item element-item p_one_third <%= article.category.name %>">
-            <div class="item">
-              <%= cl_image_tag article.photo.key, height: 300, width: 400, crop: :fit, alt: "article.name" %>
-              <div class="portfolio-text-holder">
-                <p><%= article.name.upcase %></p>
-              </div>
-            </div>
-          </div>
-        <% end %>
         <% if user_signed_in? %>
           <div class="grid-item element-item p_one_third new-article-item">
             <div class="item">
@@ -32,7 +22,36 @@
             </div>
           </div>
         <% end %>
-  <!-- PROJETS -->
+
+        <% @articles.each do |article| %>
+          <div class="grid-item element-item p_one_third <%= article.category.name %>">
+
+            <div class="item position-relative">
+              <%= cl_image_tag article.photo.key, height: 300, width: 400, crop: :fit, alt: "article.name" %>
+
+              <% if user_signed_in? %>
+                <div class="edit-article-zone">
+                  <div class="edit-article-text">
+                    <p><%= article.name.upcase %></p>
+                    <div class="edit-article-icons">
+                      <%= link_to edit_article_path(article) do %>
+                        <i class="fas fa-edit"></i>
+                      <% end %>
+                      <%= link_to article_path(article), method: :delete, remote: true do %>
+                        <i class="fas fa-trash-alt"></i>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              <% else %>
+                <div class="portfolio-text-holder">
+                  <p><%= article.name.upcase %></p>
+                </div>
+              <% end %>
+
+            </div>
+          </div>
+        <% end %>
 
     </div>
   </div>
