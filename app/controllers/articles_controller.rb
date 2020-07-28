@@ -3,12 +3,12 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+    @article.build_category
     @categories = Category.all
   end
 
   def create
     @article = Article.new(article_params)
-    @article.category = Category.find(params[:article][:category])
     @article.star = params[:article][:star] == "1" ? true : false
     if @article.save
       redirect_to root_path
@@ -25,7 +25,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:name, :star, :photo)
+    params.require(:article).permit(:name, :star, :photo, category_attributes: [:id, :name])
   end
 
 end
