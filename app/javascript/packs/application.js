@@ -32,6 +32,6 @@ import { isotopeGrid } from '../plugins/isotope';
 document.addEventListener('turbolinks:load', () => {
   setTimeout(() => {
     isotopeGrid();
-  }, 100);
+  }, 200);
   displayForm();
 });
