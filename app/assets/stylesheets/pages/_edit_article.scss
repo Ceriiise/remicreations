@@ -12,24 +12,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  .fas {
+  .fas:not(.fa-star) {
     font-weight: 300;
+  }
+  p {
+    margin-bottom: 0;
   }
 }
 
-.edit-article-text {
-  min-width: 5rem;
-  text-align: center;
-}
-
-.edit-article-icons {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  margin-top: 2rem;
-}
-
-.edit-article-icons a {
+.edit-article-zone a {
   transition: ease .5s all;
   i {
     transition: ease .5s all;
@@ -45,9 +36,28 @@
   }
 }
 
+.edit-article-text {
+  min-width: 5rem;
+  text-align: center;
+}
+
+.edit-article-icons {
+  width: 90%;
+}
+
+
 .delete-category-icon i {
   margin-left: .5rem;
   &:hover {
+    color: red !important;
+  }
+}
+
+.delete-article-icon {
+  position: absolute;
+  top: -16px;
+  right: -8px;
+  i:hover {
     color: red !important;
   }
 }
