@@ -4,7 +4,6 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
-    # @article.build_category
     @categories = Category.all
   end
 
