@@ -1,3 +1,7 @@
+<head>
+  <meta name="turbolinks-visit-control" content="reload">
+</head>
+
 <div id="content" class="site-content">
   <div class="content-1330 center-relative">
     <div class="button-group filters-button-group pt-0">
@@ -11,12 +15,11 @@
             <% end %>
           </div>
         </div>
-      <% else %>
-        <div class="button is-checked" data-filter="*">Tout</div>
       <% end %>
+      <div class="button is-checked" data-filter="*">Tout</div>
       <% @categories.each do |category| %>
-        <div class="button" data-filter=".<%= category.name.capitalize %>">
-          <span class="text"><%= category.name.capitalize %></span>
+        <div class="button text" data-filter=".<%= category.name %>">
+          <%= category.name.capitalize %>
           <% if user_signed_in? %>
             <%= link_to category_path(category),
                         method: :delete,
@@ -49,12 +52,13 @@
           <div class="grid-item element-item p_one_third <%= article.category.name %>">
 
             <div class="item position-relative">
-              <%= cl_image_tag article.photo.key, height: 300, width: 400, crop: :fit, alt: "article.name" %>
+              <%= cl_image_tag article.photo.key, height: 400, width: 400, crop: :thumb, alt: "article.name" %>
 
               <% if user_signed_in? %>
                 <div class="edit-article-zone">
                   <div class="edit-article-text">
                     <p><%= article.name.upcase %></p>
+                    <p class="pt-1"><small><%= article.category.name %></small></p>
                     <div class="edit-article-icons">
                       <%= link_to edit_article_path(article) do %>
                         <i class="fas fa-edit"></i>
