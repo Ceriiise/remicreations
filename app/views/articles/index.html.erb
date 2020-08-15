@@ -48,7 +48,7 @@
           </div>
         <% end %>
 
-        <% @articles.each do |article| %>
+        <% @articles.order('articles.created_at DESC').each do |article| %>
           <div class="grid-item element-item p_one_third <%= article.category.name %>">
 
             <div class="item position-relative">
@@ -56,20 +56,38 @@
 
               <% if user_signed_in? %>
                 <div class="edit-article-zone">
+                  <div class="delete-article-icon">
+                    <%= link_to article_path(article),
+                                  method: :delete,
+                                  remote: true,
+                                  data: { confirm: "Es-tu sûr de vouloir supprimer cette oeuvre ?"} do %>
+                      <i class="far fa-times-circle"></i>
+                    <% end %>
+                  </div>
+                  <div class="star-article-icons">
+                    <p><small>
+                      <% if article.star? %>
+                        <%= link_to downvote_article_path(article), method: :patch, remote: true do %>
+                          <i class="fas fa-star"></i>
+                        <% end %>
+                      <% else %>
+                        <%= link_to upvote_article_path(article), method: :patch, remote: true do %>
+                          <i class="far fa-star"></i>
+                        <% end %>
+                      <% end %>
+                    </small></p>
+                  </div>
                   <div class="edit-article-text">
-                    <p><%= article.name.upcase %></p>
-                    <p class="pt-1"><small><%= article.category.name %></small></p>
-                    <div class="edit-article-icons">
-                      <%= link_to edit_article_path(article) do %>
-                        <i class="fas fa-edit"></i>
-                      <% end %>
-                      <%= link_to article_path(article),
-                                    method: :delete,
-                                    remote: true,
-                                    data: { confirm: "Es-tu sûr de vouloir supprimer cette oeuvre ?"} do %>
-                        <i class="fas fa-trash-alt"></i>
-                      <% end %>
+                    <div class="d-flex align-items-start">
+                      <p><%= article.name.upcase %></p>
+                      <span class="ml-3"><small>
+                        <%= link_to edit_article_path(article) do %>
+                          <i class="far fa-edit"></i>
+                        <% end  %>
+                      </small></span>
                     </div>
+
+                    <p><small><%= article.category.name %></small></p>
                   </div>
                 </div>
               <% else %>

@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   get 'contact', to: 'pages#contact'
 
   resources :categories
-  resources :articles
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :articles do
+    member do
+      patch "/downvote", to: 'articles#downvote'
+      patch "/upvote", to: 'articles#upvote'
+    end
+  end
 end

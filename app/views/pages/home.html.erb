@@ -18,7 +18,7 @@
       <div class="grid" id="portfolio">
         <div class="grid-sizer"></div>
 
-          <% @star_articles.each do |article| %>
+          <% @star_articles.order('articles.created_at DESC').each do |article| %>
 
             <div class="grid-item element-item p_one_third <%= article.category.name %>">
               <div class="item">
