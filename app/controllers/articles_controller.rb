@@ -12,7 +12,8 @@ class ArticlesController < ApplicationController
     @article.category = Category.find(params[:article][:category_id])
     @article.star = params[:article][:star] == "1" ? true : false
     if @article.save
-      redirect_to articles_path
+      flash[:notice] = "Nouvelle création ajoutée !"
+      redirect_to articles_path(anchor: "article-#{@article.id}")
     else
       render :new
     end
@@ -30,19 +31,22 @@ class ArticlesController < ApplicationController
 
   def update
     @article.update(article_params)
+    flash[:notice] = "La créations #{@article.name} a été modifié."
     redirect_to articles_path
   end
 
   def destroy
     @article.photo.purge
     @article.destroy
+    flash[:alert] = "Tu viens de supprimer #{@article.name}."
     redirect_to articles_path
   end
 
   def downvote
     @article.star = false
     @article.save
-    redirect_to articles_path
+    flash[:alert] = "#{@article.name} ne fait plus parti des favoris."
+    redirect_to articles_path(anchor: "article-#{@article.id}")
   end
 
   def upvote
@@ -52,7 +56,8 @@ class ArticlesController < ApplicationController
     else
       @article.star = true
       @article.save
-      redirect_to articles_path
+      flash[:notice] = "C'est bon ! #{@article.name} est dans les favoris."
+      redirect_to articles_path(anchor: "article-#{@article.id}")
     end
   end
 

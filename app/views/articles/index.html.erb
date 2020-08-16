@@ -11,7 +11,7 @@
           <div id="new-form-input" class="d-none">
             <%= simple_form_for([@category], remote: true) do |m| %>
               <%= m.input :name, label: "Nom de la nouvelle catégorie" %>
-              <%= m.submit "Enregistrer", class: "button" %>
+              <%= m.submit "Enregistrer", class: "form-button" %>
             <% end %>
           </div>
         </div>
@@ -49,7 +49,7 @@
         <% end %>
 
         <% @articles.order('articles.created_at DESC').each do |article| %>
-          <div class="grid-item element-item p_one_third <%= article.category.name %>">
+          <div id="article-<%= article.id %>" class="grid-item element-item p_one_third <%= article.category.name %>">
 
             <div class="item position-relative">
               <%= cl_image_tag article.photo.key, height: 400, width: 400, crop: :thumb, alt: "article.name" %>
