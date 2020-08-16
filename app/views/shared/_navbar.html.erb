@@ -6,16 +6,13 @@
   <div class="header-menu right">
     <nav id="header-main-menu">
       <ul class="main-menu">
-        <li class="">
+        <li class="<%= 'active' if current_page?(root_path) %>">
           <%= link_to "Accueil", root_path %>
         </li>
-<!--         <li class="">
-          <a href="#">A Propos</a>
-        </li> -->
-        <li class="">
+        <li class="<%= 'active' if current_page?(articles_path) %>">
           <%= link_to "Collections", articles_path %>
         </li>
-        <li class="">
+        <li class="<%= 'active' if current_page?(contact_path) %>">
           <%= link_to "Contact", contact_path %>
         </li>
       </ul>

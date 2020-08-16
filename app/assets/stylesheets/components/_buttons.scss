@@ -4,9 +4,22 @@ a.button {
   border: 3px solid $brand-primary;
   padding: 15px 40px;
   text-decoration: none;
+  transition: 0.5s ease all;
 }
 
-a.button:hover {
+.form-button {
+  display: inline-block;
+  color: $brand-primary;
+  background-color: $white;
+  border: 1px solid $brand-primary;
+  padding: 5px 20px;
+  text-decoration: none;
+  transition: 0.5s ease all;
+}
+
+a.button:hover, .form-button:hover {
   color: white;
   background-color: $brand-primary;
+  transition: 0.5s ease all;
 }
+

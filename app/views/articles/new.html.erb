@@ -1,9 +1,11 @@
-<div id="new-form" class="content-1330 center-relative">
+<div class="content-1330 center-relative">
   <%= simple_form_for @article do |f| %>
     <%= f.input :name, label: "Nom" %>
     <%= f.input :category_id, label: "Catégorie", as: :select, collection: @categories %>
     <%= f.input :star, label:"Classer en favori ?", as: :boolean %>
     <%= f.input :photo, as: :file %>
-    <%= f.submit "Enregistrer", class: "button" %>
+    <%= f.submit "Enregistrer", class: "form-button" %>
   <% end %>
+
+  <%= link_to "Annuler", articles_path  %>
 </div>
