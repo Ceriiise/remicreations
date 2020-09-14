@@ -257,6 +257,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  actionview (>= 6.0.3.2)
   autoprefixer-rails
   bootsnap (>= 1.4.2)
   byebug
