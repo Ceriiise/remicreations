@@ -1,11 +1,28 @@
-<div class="content-1330 center-relative">
-  <%= simple_form_for([@article], remote: true) do |f| %>
-    <%= f.input :name, label: "Nom", placeholder: "Fleur rose" %>
-    <%= f.input :category_id, label: "Catégorie", as: :select, collection: @categories, selected: 1 %>
-    <%= f.input :star, label:"Classer en favori ?", as: :boolean %>
-    <%= f.input :photo, as: :file %>
-    <%= f.submit "Enregistrer", class: "form-button" %>
-  <% end %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8">
+      <%= simple_form_for([@article], remote: true) do |f| %>
+        <div class="form-row">
+          <div class="col-12 col-md-6 form-group">
+            <%= f.input :name, label: "Nom", placeholder: "Fleur rose" %>
+          </div>
+          <div class="col-12 col-md-6 form-group">
+            <%= f.input :category_id, label: "Catégorie", as: :select, collection: @categories, selected: 1 %>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-12 col-md-6 form-group">
+            <%= f.input :photo, as: :file, input_html: { class: 'd-none', id: 'photo-input'}, label_html: { class: 'upload-photo'}, label: '📷 Ajoute une photo' %>
+            <%= image_tag "", width: 300, class: "d-none", id: "photo-preview" %>
+          </div>
+          <div class="col-12 col-md-6 form-group">
+            <%= f.input :star, label:"Classer en favori ?", as: :boolean %>
+          </div>
+        </div>
+        <%= f.submit "Enregistrer", class: "form-button" %>
+      <% end %>
 
-  <small><%= link_to "Annuler", articles_path  %></small>
+      <small><%= link_to "Annuler", articles_path  %></small>
+    </div>
+  </div>
 </div>
