@@ -1,5 +1,5 @@
 <div class="content-1330 center-relative">
-  <%= simple_form_for ([@article], remote: true) do |f| %>
+  <%= simple_form_for([@article], remote: true) do |f| %>
     <%= f.input :name, label: "Nom", placeholder: "Fleur rose" %>
     <%= f.input :category_id, label: "Catégorie", as: :select, collection: @categories, selected: 1 %>
     <%= f.input :star, label:"Classer en favori ?", as: :boolean %>
