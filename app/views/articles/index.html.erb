@@ -5,18 +5,9 @@
 <div id="content" class="site-content">
   <div class="content-1330 center-relative">
     <div class="button-group filters-button-group pt-0">
-      <% if user_signed_in? %>
-        <div id="new-form">
-          <span id="new-form-link"><p><small>ajouter une catégorie</small></p></span>
-          <div id="new-form-input" class="d-none">
-            <%= simple_form_for([@category], remote: true) do |m| %>
-              <%= m.input :name, label: "Nom de la nouvelle catégorie" %>
-              <%= m.submit "Enregistrer", class: "form-button" %>
-            <% end %>
-          </div>
-        </div>
+      <% unless @categories.empty? %>
+        <div class="button is-checked" data-filter="*">Tout</div>
       <% end %>
-      <div class="button is-checked" data-filter="*">Tout</div>
       <% @categories.each do |category| %>
         <div class="button text" data-filter=".<%= category.name %>">
           <%= category.name.capitalize %>
@@ -28,6 +19,23 @@
               <span class="delete-category-icon"><i class="far fa-times-circle"></i></span>
             <% end %>
           <% end %>
+        </div>
+      <% end %>
+      <% if user_signed_in? %>
+        <div id="new-form">
+          <% if @categories.empty? %>
+            <span id="new-form-link">
+              <p><small><i class="fas fa-plus mr-2"></i>ajoute ta première catégorie</small></p>
+            </span>
+          <% else %>
+            <span id="new-form-link"><p><small>ajouter une catégorie</small></p></span>
+          <% end %>
+          <div id="new-form-input" class="d-none">
+            <%= simple_form_for([@category], remote: true) do |m| %>
+              <%= m.input :name, label: "Nom de la nouvelle catégorie", placeholder: "Verre, argile ..." %>
+              <%= m.submit "Enregistrer", class: "form-button" %>
+            <% end %>
+          </div>
         </div>
       <% end %>
     </div>
