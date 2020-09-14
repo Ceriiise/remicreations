@@ -35,6 +35,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'cloudinary', '~> 1.12.0'
 gem 'turbolinks_render'
+# gem "actionview", ">= 6.0.3.2"
 
 
 group :development, :test do  gem 'pry-byebug'
