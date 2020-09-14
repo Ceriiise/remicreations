@@ -27,11 +27,12 @@ import "bootstrap";
 // Internal imports, e.g:
 import { displayForm } from '../components/displayForm';
 import { isotopeGrid } from '../plugins/isotope';
-
+import { previewImageOnFileSelect } from '../components/photo_preview'
 
 document.addEventListener('turbolinks:load', () => {
   setTimeout(() => {
     isotopeGrid();
   }, 200);
   displayForm();
+  previewImageOnFileSelect();
 });
