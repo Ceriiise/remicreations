@@ -10,14 +10,15 @@
             <%= f.input :category_id, label: "Catégorie", as: :select, collection: @categories, selected: 1 %>
           </div>
         </div>
-        <div class="form-row">
-          <div class="col-12 col-md-6 form-group">
-            <%= f.input :photo, as: :file, input_html: { class: 'd-none', id: 'photo-input'}, label_html: { class: 'upload-photo'}, label: '📷 Ajoute une photo' %>
-            <%= image_tag "", width: 300, class: "d-none", id: "photo-preview" %>
-          </div>
-          <div class="col-12 col-md-6 form-group">
-            <%= f.input :star, label:"Classer en favori ?", as: :boolean %>
-          </div>
+        <div class="form-group">
+          <%= f.input :description, label: "Description", placeholder: "Jolie fleur en verre avec pétales en dégradé de rose" %>
+        </div>
+        <div class="form-group">
+          <%= f.input :star, label:"Classer en favori ?", as: :boolean %>
+        </div>
+        <div class="form-group">
+          <%= f.input :photo, as: :file, input_html: { class: 'd-none', id: 'photo-input'}, label_html: { class: 'upload-photo'}, label: '📷 Ajoute une photo' %>
+          <%= image_tag "", width: 300, class: "d-none", id: "photo-preview" %>
         </div>
         <%= f.submit "Enregistrer", class: "form-button" %>
       <% end %>
