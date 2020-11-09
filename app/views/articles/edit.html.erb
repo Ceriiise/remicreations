@@ -12,6 +12,7 @@
         <#% end %> -->
       </div>
     </div>
+    <%= f.input :description, label: "Description" %>
     <%= f.input :star, label:"Classer en favori ?", as: :boolean %>
     <%= f.input :photo, as: :file %>
     <%= f.submit "Enregistrer", class: "button" %>
