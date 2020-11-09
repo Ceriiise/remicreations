@@ -1,20 +1,39 @@
-<div id="new-article" class="content-1330 center-relative">
-  <%= simple_form_for @article do |f| %>
-    <%= f.input :name, label: "Nom" %>
-    <%= f.input :category_id, label: "Catégorie", as: :select, collection: @categories %>
-    <div class="new-category">
-      <div id="new-category-link">
-        <p>ajouter une catégorie</p>
-      </div>
-      <div id="new-category-form" class="d-none">
-<!--         <#%= f.simple_fields_for :category do |m| %>
-          <#%= m.input :name, label: "Nom de la nouvelle catégorie" %>
-        <#% end %> -->
-      </div>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8">
+      <%= simple_form_for @article do |f| %>
+        <div class="form-row">
+          <div class="col-12 col-md-6 form-group">
+            <%= f.input :name, label: "Nom de l'oeuvre", placeholder: "Fleur rose" %>
+          </div>
+          <div class="col-12 col-md-6 form-group">
+            <%= f.input :category_id, label: "Catégorie", as: :select, collection: @categories, selected: 1 %>
+          </div>
+        </div>
+
+        <div class="new-category">
+          <div id="new-category-link">
+            <p>ajouter une catégorie</p>
+          </div>
+          <div id="new-category-form" class="d-none">
+    <!--         <#%= f.simple_fields_for :category do |m| %>
+              <#%= m.input :name, label: "Nom de la nouvelle catégorie" %>
+            <#% end %> -->
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.input :description, label: "Description", placeholder: "Jolie fleur en verre avec pétales en dégradé de rose" %>
+        </div>
+        <div class="form-group">
+          <%= f.input :star, label:"Classer en favori ?", as: :boolean %>
+        </div>
+        <div class="form-group">
+          <%= f.input :photo, as: :file, input_html: { class: 'd-none', id: 'photo-input'}, label_html: { class: 'upload-photo'}, label: '📷 Ajoute une photo' %>
+          <%= image_tag "", width: 300, class: "d-none", id: "photo-preview" %>
+        </div>
+
+        <%= f.submit "Enregistrer", class: "button" %>
+      <% end %>
     </div>
-    <%= f.input :description, label: "Description" %>
-    <%= f.input :star, label:"Classer en favori ?", as: :boolean %>
-    <%= f.input :photo, as: :file %>
-    <%= f.submit "Enregistrer", class: "button" %>
-  <% end %>
+  </div>
 </div>
